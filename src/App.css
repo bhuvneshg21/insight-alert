@@ -76,6 +76,76 @@ header {
   margin-bottom: 20px;
   width: 100%;
 }
+/* App.css */
+.app {
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+}
+
+.content-layout {
+  display: flex;
+}
+
+/* Header.css */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #002f5d;
+  color: white;
+}
+
+.header .search-bar {
+  flex: 1;
+  margin: 0 20px;
+  padding: 8px;
+}
+
+.nav-links a {
+  color: white;
+  margin: 0 10px;
+}
+
+/* Sidebar.css */
+.sidebar {
+  width: 25%;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+.left-sidebar {
+  border-right: 1px solid #ddd;
+}
+
+.right-sidebar {
+  border-left: 1px solid #ddd;
+}
+
+/* TopUpdates.css */
+.top-updates {
+  width: 50%;
+  padding: 20px;
+}
+
+/* UpdateCard.css */
+.update-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.find-group-btn {
+  padding: 8px 12px;
+  background-color: #002f5d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
 @media (min-width: 768px) {
   .dashboard {
