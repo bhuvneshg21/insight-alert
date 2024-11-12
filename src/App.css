@@ -1,0 +1,94 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.sales-os {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+header {
+  background: #1a1a2e;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+}
+
+.sidebar {
+  width: 250px;
+  background: #f4f4f4;
+  padding: 20px;
+}
+
+.insight-alert-box {
+  background: #ffffff;
+  padding: 15px;
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.insight-alert-box h3 {
+  color: #333;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.insight-alert-box p {
+  font-size: 0.9em;
+  color: #666;
+  margin: 5px 0;
+}
+
+.insight-alert-box strong {
+  color: #333;
+}
+
+.main {
+  flex: 1;
+  padding: 20px;
+}
+
+.chatbot {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ffa500;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dashboard {
+  padding: 20px;
+}
+
+.chart-container {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .dashboard {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .chart-container {
+    width: 45%; /* Display charts side-by-side on larger screens */
+  }
+}
+
+@media (max-width: 767px) {
+  .chart-container {
+    width: 100%; /* Stack charts vertically on smaller screens */
+  }
+}

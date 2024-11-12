@@ -1,0 +1,242 @@
+
+/* HomePage.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.sales-os {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header {
+  background: #1a1a2e;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  font-size: 0.9em;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  padding: 20px;
+}
+
+.sidebar {
+  width: 300px;
+  background: #f4f4f4;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+}
+
+.sidebar-title {
+  font-size: 1.2em;
+  margin-bottom: 15px;
+}
+
+.updates-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.updates-list li {
+  font-size: 0.9em;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.manage-link {
+  display: block;
+  color: #0073e6;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.insight-alert-box {
+  background: #ffffff;
+  padding: 15px;
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.insight-alert-box h3 {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
+.insight-alert-box .subtext {
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* Need Help Box */
+.need-help-box {
+  background: #ffffff;
+  padding: 15px;
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.need-help-box h3 {
+  font-size: 1.2em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.need-help-box p {
+  font-size: 0.9em;
+  color: #555;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.main-title {
+  font-size: 1.4em;
+  margin-bottom: 15px;
+}
+
+.main-title .powered-by-ai {
+  font-size: 0.8em;
+  color: #777;
+}
+
+.customer-selector {
+  margin-bottom: 20px;
+}
+
+.customer-insight-preview {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.customer-insight-preview h3 {
+  font-size: 1.3em;
+  margin-bottom: 5px;
+}
+
+.customer-insight-preview p {
+  font-size: 0.9em;
+  color: #444;
+  margin: 5px 0;
+}
+
+.signals-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.signals-list li {
+  font-size: 0.9em;
+  color: #555;
+}
+
+.view-dashboard-link {
+  color: #0073e6;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.chatbot {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ffa500;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+/* Layout for three sections */
+.content {
+  display: flex;
+}
+
+.left-sidebar, .right-sidebar {
+  width: 25%;
+  padding: 20px;
+}
+
+.middle-content {
+  width: 50%;
+  padding: 20px;
+}
+
+/* Functionalities Bar */
+.functionalities-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #6a0dad;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.functionalities-bar.expanded {
+  height: 120px;
+  padding-bottom: 20px;
+}
+
+.functionalities-details {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+/* Popover */
+.popover {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  max-width: 200px;
+}
+
+/* Customer Cards */
+.customer-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.customer-card {
+  border: 1px solid #e3e3e3;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.copilot-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
