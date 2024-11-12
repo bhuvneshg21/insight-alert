@@ -11,3 +11,8 @@
 .right-sidebar {
   border-left: 1px solid #ddd;
 }
+.need-help-name {
+  cursor: pointer;
+  color: #007bff;
+  text-decoration: underline;
+}

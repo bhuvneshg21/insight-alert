@@ -1,20 +1,22 @@
-import React from 'react';
-import Header from './components/Header';
-import Sidebar from './components/Sidebar';
-import TopUpdates from './components/TopUpdates';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes, useParams } from 'react-router-dom';
+import InsightAlertDashboard from './InsightAlertDashboard';
+import HomePage from './HomePage';
 
 function App() {
   return (
-    <div className="app">
-      <Header />
-      <div className="content-layout">
-        <Sidebar />
-        <TopUpdates />
-        <Sidebar infoOnly />
-      </div>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/insight-alert/:customerId" element={<InsightAlertDashboardWrapper />} />
+      </Routes>
+    </Router>
   );
 }
+
+// Wrapper to fetch the customerId from route params
+const InsightAlertDashboardWrapper = () => {
+  const { customerId } = useParams();
+  return <InsightAlertDashboard selectedCustomerId={Number(customerId)} />;
+};
 
 export default App;

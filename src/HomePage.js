@@ -2,14 +2,14 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Link , useNavigate} from 'react-router-dom';
 import './HomePage.css';
 import { customersData, insightAlertBoxData } from './data';
-import InsightAlertIcon from './assets/InsightAlert.png';
+import InsightAlertIcon from './assets/InsightAlertSmall.png';
   
 function HomePage() {
   const [showFunctionalitiesBar, setShowFunctionalitiesBar] = useState(false);
   const [popoverData, setPopoverData] = useState(null);
   const popoverRef = useRef(null);
   const navigate = useNavigate();
-  const [selectedCustomer, setSelectedCustomer] = useState(customersData[0]);
+  const [selectedCustomer, setSelectedCustomer] = useState(customersData[0]);````````````````````````````````````````````````````````````````````````````````````````````
   const toggleFunctionalitiesBar = () => {
     setShowFunctionalitiesBar(!showFunctionalitiesBar);
   };

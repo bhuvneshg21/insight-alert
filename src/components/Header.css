@@ -17,3 +17,17 @@
   color: white;
   margin: 0 10px;
 }
+.header .search-container {
+  display: flex;
+  align-items: center;
+}
+
+.header .search-bar {
+  width: 250px; /* Smaller search bar width */
+  margin-right: 10px;
+}
+
+.advanced-search {
+  color: blue;
+  font-weight: bold;
+}

@@ -1,3 +1,4 @@
+// components/Header.js
 import React from 'react';
 import './Header.css';
 
@@ -5,7 +6,10 @@ function Header() {
   return (
     <header className="header">
       <div className="logo">Sales<sup>+</sup></div>
-      <input type="text" className="search-bar" placeholder="Search for companies, contacts, industries, etc." />
+      <div className="search-container">
+        <input type="text" className="search-bar" placeholder="Search for companies, contacts, industries, etc." />
+        <span className="advanced-search">Advanced Search</span>
+      </div>
       <nav className="nav-links">
         <a href="#">Home</a>
         <a href="#">Intent</a>
