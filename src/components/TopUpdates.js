@@ -1,4 +1,3 @@
-// components/TopUpdates.js
 import React from 'react';
 import UpdateCard from './UpdateCard';
 import './TopUpdates.css';

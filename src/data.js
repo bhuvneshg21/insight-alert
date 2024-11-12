@@ -17,6 +17,12 @@ export const insightAlertBoxData = {
     customerSuccessManager: "Jayakrishna Thirumeni",
   },
 };
+// data.js
+export const needHelpData = [
+  { name: 'Alice Johnson', email: 'alice@example.com' },
+  { name: 'Bob Smith', email: 'bob@example.com' },
+  { name: 'Charlie Brown', email: 'charlie@example.com' },
+];
 
 // data.js
 export const customersData = [

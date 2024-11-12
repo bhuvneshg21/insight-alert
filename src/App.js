@@ -1,8 +1,7 @@
-// App.js
 import React from 'react';
-import Header from './components/Header'; // default export
-import Sidebar from './components/Sidebar'; // default export
-import TopUpdates from './components/TopUpdates'; // default export
+import Header from './components/Header';
+import Sidebar from './components/Sidebar';
+import TopUpdates from './components/TopUpdates';
 import './App.css';
 
 function App() {

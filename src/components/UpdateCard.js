@@ -1,4 +1,3 @@
-// components/UpdateCard.js
 import React from 'react';
 import './UpdateCard.css';
 

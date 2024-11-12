@@ -146,6 +146,15 @@ header {
   border-radius: 4px;
   cursor: pointer;
 }
+.app {
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+}
+
+.content-layout {
+  display: flex;
+}
 
 @media (min-width: 768px) {
   .dashboard {

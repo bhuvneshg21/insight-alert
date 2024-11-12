@@ -1,8 +1,19 @@
 // components/Sidebar.js
-import React from 'react';
+import React, { useState } from 'react';
 import './Sidebar.css';
+import { needHelpData } from '../data'; // Importing data from data.js
+import { Popover, Button } from 'antd'; // Using Ant Design for popover functionality
 
-function Sidebar({ infoOnly }) {
+function Sidebar({ infoOnly, onNavigateToDashboard }) {
+  const [visiblePopover, setVisiblePopover] = useState(false);
+  const [popoverContent, setPopoverContent] = useState('');
+
+  // Function to handle popover for "Need Help" section
+  const handleNeedHelpClick = (person) => {
+    setPopoverContent(`Contact ${person.name} at ${person.email}`);
+    setVisiblePopover(true);
+  };
+
   if (infoOnly) {
     return (
       <aside className="sidebar right-sidebar">
@@ -13,12 +24,15 @@ function Sidebar({ infoOnly }) {
             <li>Usage Data</li>
             <li>Did You Know?</li>
             <li>Unexplored Features</li>
-            <li>Need Help? Contact</li>
           </ul>
+          <Button onClick={onNavigateToDashboard} className="navigate-dashboard-btn">
+            Go to Dashboard
+          </Button>
         </div>
       </aside>
     );
   }
+
   return (
     <aside className="sidebar left-sidebar">
       <div className="section">
@@ -30,8 +44,26 @@ function Sidebar({ infoOnly }) {
         </ul>
         <a href="#">Manage Target Accounts</a>
       </div>
+
+      <div className="need-help-section">
+        <h3>Need Help?</h3>
+        {needHelpData.map((person, index) => (
+          <Popover
+            key={index}
+            content={popoverContent}
+            title="Contact Information"
+            trigger="click"
+            visible={visiblePopover && popoverContent === `Contact ${person.name} at ${person.email}`}
+            onVisibleChange={(visible) => setVisiblePopover(visible)}
+          >
+            <p onClick={() => handleNeedHelpClick(person)} className="need-help-name">
+              {person.name}
+            </p>
+          </Popover>
+        ))}
+      </div>
     </aside>
   );
 }
 
-export default Sidebar; // default export
+export default Sidebar;
