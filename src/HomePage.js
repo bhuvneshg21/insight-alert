@@ -9,7 +9,7 @@ function HomePage() {
   const [popoverData, setPopoverData] = useState(null);
   const popoverRef = useRef(null);
   const navigate = useNavigate();
-  const [selectedCustomer, setSelectedCustomer] = useState(customersData[0]);````````````````````````````````````````````````````````````````````````````````````````````
+  const [selectedCustomer, setSelectedCustomer] = useState(customersData[0]);
   const toggleFunctionalitiesBar = () => {
     setShowFunctionalitiesBar(!showFunctionalitiesBar);
   };
@@ -56,10 +56,24 @@ function HomePage() {
 
   return (
     <div className="sales-os">
-      <header className="header">
-        <h1>Sales OS</h1>
-        <nav className="nav">
-          <Link to="/">Home</Link>
+         <header className="header">
+        <div className="header-left">
+          <div className="logo">Sales<sup>+</sup></div>
+          <div className="search-container">
+            <input type="text" className="search-bar" placeholder="Search for companies, contacts, industries, etc." />
+            <span className="advanced-search">Advanced Search</span>
+          </div>
+        </div>
+        <nav className="header-menu">
+          <a href="#" className="menu-item">Home</a>
+          <a href="#" className="menu-item">Intent</a>
+          <a href="#" className="menu-item">Tracker</a>
+          <a href="#" className="menu-item">Lists</a>
+          <a href="#" className="menu-item">WebSights</a>
+          <a href="#" className="menu-item">Workflows</a>
+          <a href="#" className="menu-item">Chat</a>
+          <a href="#" className="menu-item">More</a>
+          <span className="notification-icon">🔔</span>
         </nav>
       </header>
 
