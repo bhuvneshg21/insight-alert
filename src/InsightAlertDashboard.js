@@ -25,6 +25,26 @@ const InsightAlertDashboard = ({ selectedCustomerId }) => {
 
   return (
     <div className="insight-alert-dashboard">
+      <header className="header">
+        <div className="header-left">
+          <div className="logo">Sales<sup>+</sup></div>
+          <div className="search-container">
+            <input type="text" className="search-bar" placeholder="Search for companies, contacts, industries, etc." />
+            <span className="advanced-search">Advanced Search</span>
+          </div>
+        </div>
+        <nav className="header-menu">
+          <a href="#" className="menu-item">Home</a>
+          <a href="#" className="menu-item">Intent</a>
+          <a href="#" className="menu-item">Tracker</a>
+          <a href="#" className="menu-item">Lists</a>
+          <a href="#" className="menu-item">WebSights</a>
+          <a href="#" className="menu-item">Workflows</a>
+          <a href="#" className="menu-item">Chat</a>
+          <a href="#" className="menu-item">More</a>
+          <span className="notification-icon">🔔</span>
+        </nav>
+      </header>
       <header>
         <img src={InsightAlertIcon} alt="Insight Alert Icon" className="insight-alert-icon" /> 
         <h1>Insight Alert Dashboard</h1>

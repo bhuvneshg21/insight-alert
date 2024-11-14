@@ -239,6 +239,8 @@
 
 /* Homepage.css */
 
+/* Homepage.css */
+
 /* General Styles */
 body {
   font-family: Arial, sans-serif;
@@ -250,16 +252,16 @@ body {
 .header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   background: #002f5d;
   color: white;
   padding: 10px;
-  justify-content: space-between;
 }
 
 .header-left {
   display: flex;
   align-items: center;
-  flex-shrink: 0; /* Keep the left side fixed in width */
+  flex-shrink: 0; /* Prevents the left section from growing */
 }
 
 .logo {
@@ -286,13 +288,12 @@ body {
   cursor: pointer;
 }
 
-/* Center Menu with Spacing on Both Sides */
+/* Right-Aligned Menu */
 .header-menu {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  margin-left: auto; /* Pushes the menu items to the right */
   gap: 20px;
-  flex-grow: 1; /* Allows the menu to expand in the center */
-  padding-right: 3in; /* 3-inch space at the end */
 }
 
 .menu-item {
@@ -300,10 +301,10 @@ body {
   text-decoration: none;
 }
 
-/* Icon on Right */
 .notification-icon {
   font-size: 1.5em;
   cursor: pointer;
+  margin-right: 50px; /* Adds space after the last icon to the right edge */
 }
 
 /* Main Content */
