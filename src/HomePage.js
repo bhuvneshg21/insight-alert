@@ -93,11 +93,14 @@ function HomePage() {
           <Link to="#" className="manage-link">Manage Target Accounts</Link>
 
           <div className="insight-alert-box">
-            <div className="insight-alert-header" >
-              <img src={InsightAlertIcon} alt="Insight Alert Icon" className="insight-alert-icon" />
-              <h3 >Insight Alerts!</h3>
-            </div>
-            <p className="alert-subtext "><strong>Actionable Data for Optimal Results</strong></p>
+          <div className="insight-alert-header">
+  <img src={InsightAlertIcon} alt="Insight Alert Icon" className="insight-alert-icon" />
+  <div className="insight-alert-text">
+    <h3 className="insight-title">Insight Alerts!</h3>
+    <p className="alert-subtext"><strong>Actionable Data for Optimal Results</strong></p>
+  </div>
+</div>
+            
 
             {/* <button
               className="view-dashboard-link"

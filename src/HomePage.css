@@ -404,13 +404,24 @@ body {
 }
 
 .insight-alert-icon {
-  width: 50px; /* Adjust as necessary */
   margin-right: 10px;
 }
 
-.alert-subtext {
-  margin-top: 8px; /* Adds space between header and subtext */
+.insight-alert-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Aligns text to start from the same point */
 }
+
+.insight-title {
+  margin: 0;
+  padding: 0;
+}
+
+.alert-subtext {
+  margin-top: 0; /* Removes extra spacing between title and subtext */
+}
+
 
 /* Feature Usage Bar */
 .feature-usage-bar {
