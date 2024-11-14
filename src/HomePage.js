@@ -76,6 +76,7 @@ function HomePage() {
           <a href="#" className="menu-item">Chat</a>
           <a href="#" className="menu-item">More</a>
           <span className="notification-icon">🔔</span>
+          <div className="user-initials">FG</div>
         </nav>
       </header>
 
