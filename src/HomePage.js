@@ -128,7 +128,7 @@ function HomePage() {
             onClick={() => navigate(`/insight-alert/${selectedCustomer.id}`)}
           >
             <div className="feature-usage-progress" style={{ width: '65%' }}></div>
-            <span className="feature-usage-text">You have used 65% of the features. Know more.</span>
+            <span className="feature-usage-text">You have used 65% of the features.</span>
           </div>
           <div className="need-help-box nomargin" >
             <h3 className="need-help-title nomargin" >Need Help? </h3>
