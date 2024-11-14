@@ -90,7 +90,7 @@ function HomePage() {
             <li>Target Accounts: 5</li>
             <li>Whitespace Companies: 50</li>
           </ul>
-          <Link to="#" className="manage-link">Manage Target Accounts</Link>
+          
 
           <div className="insight-alert-box">
             <div className="insight-alert-header">
@@ -100,8 +100,6 @@ function HomePage() {
                 <p className="alert-subtext"><strong>Actionable Data for Optimal Results</strong></p>
               </div>
             </div>
-
-
 
             <h4 class="nomargin">Usage Data</h4>
             <ul class="nomargin">
@@ -117,12 +115,21 @@ function HomePage() {
             <h4 class="nomargin">Unexplored Features</h4><ul class="nomargin">
               <li>You have not set up the Intent topics.</li></ul>
           </div>
-           <button
+           {/* <button
               className="view-dashboard-link"
               onClick={() => navigate(`/insight-alert/${selectedCustomer.id}`)}
             >
               View Dashboard
-            </button>
+            </button> */}
+            <a 
+  href="#"   
+  onClick={(e) => {
+    e.preventDefault(); // Prevents the default anchor behavior
+    navigate(`/insight-alert/${selectedCustomer.id}`);
+  }}
+>
+View Dashboard
+</a>
           <div
             className="feature-usage-bar"
             onClick={() => navigate(`/insight-alert/${selectedCustomer.id}`)}
