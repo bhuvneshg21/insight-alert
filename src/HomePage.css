@@ -96,10 +96,10 @@
   color: #555;
 }
 
-.main-content {
+/* .main-content {
   flex: 1;
   padding: 20px;
-}
+} */
 
 .main-title {
   font-size: 1.4em;
@@ -249,6 +249,17 @@ body {
 }
 
 /* Header */
+
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+/* Homepage.css */
+
+/* Header */
 .header {
   display: flex;
   align-items: center;
@@ -258,35 +269,122 @@ body {
   padding: 10px;
 }
 
-.header-left {
+.header-left, .header-menu {
   display: flex;
   align-items: center;
-  flex-shrink: 0; /* Prevents the left section from growing */
-}
-
-.logo {
-  font-size: 1.5em;
-  font-weight: bold;
-  margin-right: 20px;
 }
 
 .search-container {
+  margin-right: 2em;
+}
+
+.search-bar {
+  padding: 5px;
+  border-radius: 4px;
+  width: 200px;
+}
+
+.advanced-search {
+  margin-left: 10px;
+  color: #00aaff;
+}
+
+.notification-icon, .user-initials {
+  margin-left: 15px;
+}
+
+.user-initials {
+  background-color: #007bff;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 25%;
+  padding: 20px;
+}
+
+.insight-alert-box {
+  background: #ffffff;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+/* Middle Content */
+.main-content {
+  width: 65%;
+  padding: 20px;
+}
+
+.top-updates-box, .update-card {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.top-updates-box .powered-by-ai {
+  color: #007bff;
+}
+
+.learn-more-btn {
+  margin-top: 10px;
+  background-color: #007bff;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+}
+
+.update-card .update-header {
   display: flex;
   align-items: center;
 }
 
-.search-bar {
-  width: 200px;
-  padding: 5px;
-  border-radius: 4px;
-  border: none;
+.company-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
 }
 
-.advanced-search {
-  color: #00aaff;
-  margin-left: 10px;
+.ask-copilot-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  margin-left: 15px;
+}
+
+.update-details .badge {
+  display: inline-block;
+  background-color: #e0e0e0;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  margin-right: 10px;
+}
+
+.find-group-btn {
+  background-color: #e7f3ff;
+  color: #007bff;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 15px;
   cursor: pointer;
 }
+
 
 /* Right-Aligned Menu */
 .header-menu {
@@ -308,13 +406,13 @@ body {
 }
 
 /* Main Content */
-.main-content {
+/* .main-content {
   display: flex;
   padding: 20px;
-}
+} */
 
 .sidebar {
-  width: 25%;
+  width: 18%;
   background: #f5f5f5;
   padding: 20px;
 }
