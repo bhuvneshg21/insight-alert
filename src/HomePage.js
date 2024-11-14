@@ -84,7 +84,7 @@ function HomePage() {
         {/* Left Sidebar - 25% */}
 
         <div className="left-sidebar">
-          <h2 class="nomargin" >Recent Updates Feed </h2>
+          <h3 class="nomargin" >Recent Updates Feed </h3>
           <ul className="updates-list" class="nomargin">
             <li>Top Updates</li>
             <li>Target Accounts: 5</li>

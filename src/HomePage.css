@@ -145,13 +145,13 @@
 }
 
 .left-sidebar, .right-sidebar {
-  width: 20%;
-  padding: 20px;
+  width: 22%;
+  padding: 5px;
 }
 
 .middle-content {
   width: 50%;
-  padding: 20px;
+  padding: 5px;
 }
 
 /* Functionalities Bar */
@@ -177,7 +177,7 @@
   display: flex;
   justify-content: center;
   gap: 15px;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 /* Popover */
@@ -244,7 +244,7 @@ body {
   justify-content: space-between;
   background: #002f5d;
   color: white;
-  padding: 10px;
+  padding: 5px;
 }
 
 .header-left, .header-menu {
@@ -294,7 +294,7 @@ body {
 /* Middle Content */
 .main-content {
   width: 65%;
-  padding: 10px;
+  padding: 5px;
 }
 
 .top-updates-box, .update-card {
