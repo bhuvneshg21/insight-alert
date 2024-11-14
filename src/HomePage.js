@@ -93,21 +93,16 @@ function HomePage() {
           <Link to="#" className="manage-link">Manage Target Accounts</Link>
 
           <div className="insight-alert-box">
-          <div className="insight-alert-header">
-  <img src={InsightAlertIcon} alt="Insight Alert Icon" className="insight-alert-icon" />
-  <div className="insight-alert-text">
-    <h3 className="insight-title">Insight Alerts!</h3>
-    <p className="alert-subtext"><strong>Actionable Data for Optimal Results</strong></p>
-  </div>
-</div>
-            
+            <div className="insight-alert-header">
+              <img src={InsightAlertIcon} alt="Insight Alert Icon" className="insight-alert-icon" />
+              <div className="insight-alert-text">
+                <h3 className="insight-title">Insight Alerts!</h3>
+                <p className="alert-subtext"><strong>Actionable Data for Optimal Results</strong></p>
+              </div>
+            </div>
 
-            {/* <button
-              className="view-dashboard-link"
-              onClick={() => navigate(`/insight-alert/${selectedCustomer.id}`)}
-            >
-              View Dashboard
-            </button> */}
+
+
             <h4 class="nomargin">Usage Data</h4>
             <ul class="nomargin">
               <li>You have generated 120 CoPilot-driven contact searches this week.</li>
@@ -122,8 +117,14 @@ function HomePage() {
             <h4 class="nomargin">Unexplored Features</h4><ul class="nomargin">
               <li>You have not set up the Intent topics.</li></ul>
           </div>
+           <button
+              className="view-dashboard-link"
+              onClick={() => navigate(`/insight-alert/${selectedCustomer.id}`)}
+            >
+              View Dashboard
+            </button>
           <div
-            className="feature-usage-bar" 
+            className="feature-usage-bar"
             onClick={() => navigate(`/insight-alert/${selectedCustomer.id}`)}
           >
             <div className="feature-usage-progress" style={{ width: '65%' }}></div>
@@ -182,14 +183,14 @@ function HomePage() {
             <div><h4>Reach out to potential Buying Group members <button className="find-group-btn">Find Buying Group</button></h4>
             </div></div>
 
-        {/* Bubble Update Box import cashgrail from './assets/cashgrail.png'; */}
-       
+          {/* Bubble Update Box import cashgrail from './assets/cashgrail.png'; */}
 
-<div className="update-card">
+
+          <div className="update-card">
             <div className="update-header">
               <img src={bubble} alt="icon" className="company-icon" />
               <h3>
-              Bubble
+                Bubble
                 <button className="ask-copilot-btn">Ask Copilot</button>
               </h3>
             </div>
@@ -209,14 +210,14 @@ function HomePage() {
             </div>
             <div><h4>Reach out to potential Buying Group members <button className="find-group-btn">Find Buying Group</button></h4>
             </div></div>
-           {/* cashgrail Update Box import cashgrail from './assets/cashgrail.png'; */}
-       
+          {/* cashgrail Update Box import cashgrail from './assets/cashgrail.png'; */}
 
-<div className="update-card">
+
+          <div className="update-card">
             <div className="update-header">
               <img src={cashgrail} alt="icon" className="company-icon" />
               <h3>
-              Cashgrail
+                Cashgrail
                 <button className="ask-copilot-btn">Ask Copilot</button>
               </h3>
             </div>
@@ -236,7 +237,7 @@ function HomePage() {
             </div>
             <div><h4>Reach out to potential Buying Group members <button className="find-group-btn">Find Buying Group</button></h4>
             </div></div>
-       
+
 
           {/* Right Sidebar - 25% */}
           <div className="right-sidebar">
