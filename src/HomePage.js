@@ -84,8 +84,8 @@ function HomePage() {
         {/* Left Sidebar - 25% */}
 
         <div className="left-sidebar">
-          <h2>Recent Updates Feed</h2>
-          <ul className="updates-list">
+          <h2 class="nomargin" >Recent Updates Feed </h2>
+          <ul className="updates-list" class="nomargin">
             <li>Top Updates</li>
             <li>Target Accounts: 5</li>
             <li>Whitespace Companies: 50</li>
@@ -93,9 +93,9 @@ function HomePage() {
           <Link to="#" className="manage-link">Manage Target Accounts</Link>
 
           <div className="insight-alert-box">
-            <div className="insight-alert-header">
+            <div className="insight-alert-header" class="nomargin">
               <img src={InsightAlertIcon} alt="Insight Alert Icon" className="insight-alert-icon" />
-              <h3>Insight Alerts!</h3>
+              <h3 class="nomargin">Insight Alerts!</h3>
             </div>
             <p className="alert-subtext"><strong>Actionable Data for Optimal Results</strong></p>
 
@@ -120,26 +120,26 @@ function HomePage() {
               <li>You have not set up the Intent topics.</li></ul>
           </div>
           <div
-            className="feature-usage-bar"
+            className="feature-usage-bar" 
             onClick={() => navigate(`/insight-alert/${selectedCustomer.id}`)}
           >
             <div className="feature-usage-progress" style={{ width: '65%' }}></div>
             <span className="feature-usage-text">You have used 65% of the features. Know more.</span>
           </div>
-          <div className="need-help-box">
-            <h3 className="need-help-title">Need Help? </h3>
-            <p className="need-help-subtext">Contact Customer Success Manager or Account Manager</p>
+          <div className="need-help-box nomargin" >
+            <h3 className="need-help-title nomargin" >Need Help? </h3>
+            <p className="need-help-subtext nomargin" >Contact Customer Success Manager or Account Manager</p>
 
-            <div className="manager-section">
-              <h4>Customer Success Manager</h4>
-              <p className="manager-name">Aaron Corso</p>
-              <p className="manager-email">aaron.corso@zoominfo.com</p>
+            <div className="manager-section nomargin">
+              <h4 class="nomargin">Customer Success Manager</h4>
+              <p className="manager-name nomargin">Aaron Corso</p>
+              <p className="manager-email nomargin">aaron.corso@zoominfo.com</p>
             </div>
 
-            <div className="manager-section">
-              <h4>Account Manager</h4>
-              <p className="manager-name">Kendal Borras</p>
-              <p className="manager-email">kendal.borras@zoominfo.com</p>
+            <div className="manager-section nomargin">
+              <h4 class="nomargin">Account Manager</h4>
+              <p className="manager-name nomargin">Kendal Borras</p>
+              <p className="manager-email nomargin">kendal.borras@zoominfo.com</p>
             </div>
           </div>
         </div>
