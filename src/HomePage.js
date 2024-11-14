@@ -82,7 +82,7 @@ function HomePage() {
 
       <div className="content">
         {/* Left Sidebar - 25% */}
-     
+
         <div className="left-sidebar">
           <h2>Recent Updates Feed</h2>
           <ul className="updates-list">
@@ -93,56 +93,55 @@ function HomePage() {
           <Link to="#" className="manage-link">Manage Target Accounts</Link>
 
           <div className="insight-alert-box">
-          <div className="insight-alert-header">
+            <div className="insight-alert-header">
               <img src={InsightAlertIcon} alt="Insight Alert Icon" className="insight-alert-icon" />
               <h3>Insight Alerts!</h3>
             </div>
             <p className="alert-subtext"><strong>Actionable Data for Optimal Results</strong></p>
-            
-            <button
+
+            {/* <button
               className="view-dashboard-link"
               onClick={() => navigate(`/insight-alert/${selectedCustomer.id}`)}
             >
               View Dashboard
-            </button>
-            <h4>Usage Data</h4>
-            <ul>
+            </button> */}
+            <h4 class="nomargin">Usage Data</h4>
+            <ul class="nomargin">
               <li>You have generated 120 CoPilot-driven contact searches this week.</li>
               <li>You have exported 75 contact data.</li>
               <li>You have successfully set up your Domain under Websight to track companies visiting your company.</li>
             </ul>
-            <h4>Did You Know?</h4>
-            <ul>
+            <h4 class="nomargin">Did You Know?</h4>
+            <ul class="nomargin">
               <li>Based on the exports to your CRM over the past 8 weeks, we have identified that 40% of your data requires updates.</li>
               <li>According to your Target account records, 9 companies have visited your Websight in the past two weeks.</li>
             </ul>
-            <h4>Unexplored Features</h4>
-            <p>You have not set up the Intent topics.</p>
+            <h4 class="nomargin">Unexplored Features</h4><ul class="nomargin">
+              <li>You have not set up the Intent topics.</li></ul>
           </div>
-
-
+          <div
+            className="feature-usage-bar"
+            onClick={() => navigate(`/insight-alert/${selectedCustomer.id}`)}
+          >
+            <div className="feature-usage-progress" style={{ width: '65%' }}></div>
+            <span className="feature-usage-text">You have used 65% of the features. Know more.</span>
+          </div>
           <div className="need-help-box">
-            <h3>Need Help?</h3>
-            <p>
-              <a href="#" onClick={(e) => { e.preventDefault(); openPopover("accountManager"); }}>
-                Account Manager: Spandana Chandra
-              </a>
-            </p>
-            <p>
-              <a href="#" onClick={(e) => { e.preventDefault(); openPopover("customerSuccessManager"); }}>
-                Customer Success Manager: Jayakrishna Thirumeni
-              </a>
-            </p>
-          </div>
+            <h3 className="need-help-title">Need Help? </h3>
+            <p className="need-help-subtext">Contact Customer Success Manager or Account Manager</p>
 
-          {popoverData && (
-            <div className="popover" ref={popoverRef}>
-              <h4>{popoverData.name}</h4>
-              <p>Email: {popoverData.email}</p>
-              <p>Phone: {popoverData.phone}</p>
-              <button onClick={closePopover}>Close</button>
+            <div className="manager-section">
+              <h4>Customer Success Manager</h4>
+              <p className="manager-name">Aaron Corso</p>
+              <p className="manager-email">aaron.corso@zoominfo.com</p>
             </div>
-          )}
+
+            <div className="manager-section">
+              <h4>Account Manager</h4>
+              <p className="manager-name">Kendal Borras</p>
+              <p className="manager-email">kendal.borras@zoominfo.com</p>
+            </div>
+          </div>
         </div>
 
         {/* Middle Section - 50% */}
@@ -158,103 +157,91 @@ function HomePage() {
           <div className="update-card">
             <div className="update-header">
               <img src={lily} alt="icon" className="company-icon" />
-              <h3>Eli Lilly <button className="ask-copilot-btn">Ask Copilot</button></h3>
+              <h3>
+                Eli Lilly
+                <button className="ask-copilot-btn">Ask Copilot</button>
+              </h3>
             </div>
             <div className="update-details">
               <span className="badge">Great Account Fit</span>
               <span className="badge">Account in Salesforce</span>
               <span className="badge">Target Account</span>
-              <p className="description">Eli Lilly is a pharmaceutical company with over 10K employees that develops and manufactures a range of healthcare products...</p>
+              <p className="description">Eli Lilly is a pharmaceutical company with over 10k employees that develops and manufactures a range of healthcare products and solutions, generating $34.12 billion in annual revenue. </p>
             </div>
             <div className="recent-signals">
               <h4>Recent signals</h4>
               <p><strong>Last 30 days</strong></p>
               <ul>
-                <li><a href="#">Hiring Plans:</a> Eli Lilly has more open roles in Engineering & Technical...</li>
-                <li><a href="#">Partnership:</a> Eli Lilly has joined the Workforce Council...</li>
+                <li><a href="#">Hiring Plans:</a> Ei Lilly has more open roles in Engineering & Technical than it has had at any time in the past 12 months.<a href="#" class="smallSource">Source</a></li>
+                <li><a href="#">Partnership:</a> Eli Lilly has joined the workforce Council (WFC), which will focus on initiatives related to decision-making education.<a href="#" class="smallSource">Source</a></li>
               </ul>
             </div>
-            <button className="find-group-btn">Reach out to potential Buying Group members</button>
-          </div>
-          <div className="update-card">
-            <div className="update-header">
-              <img src={lily} alt="icon" className="company-icon" />
-              <h3>Eli Lilly <button className="ask-copilot-btn">Ask Copilot</button></h3>
-            </div>
-            <div className="update-details">
-              <span className="badge">Great Account Fit</span>
-              <span className="badge">Account in Salesforce</span>
-              <span className="badge">Target Account</span>
-              <p className="description">Eli Lilly is a pharmaceutical company with over 10K employees that develops and manufactures a range of healthcare products...</p>
-            </div>
-            <div className="recent-signals">
-              <h4>Recent signals</h4>
-              <p><strong>Last 30 days</strong></p>
-              <ul>
-                <li><a href="#">Hiring Plans:</a> Eli Lilly has more open roles in Engineering & Technical...</li>
-                <li><a href="#">Partnership:</a> Eli Lilly has joined the Workforce Council...</li>
-              </ul>
-            </div>
-            <button className="find-group-btn">Reach out to potential Buying Group members</button>
-          </div>
-          <div className="update-card">
-            <div className="update-header">
-              <img src={lily} alt="icon" className="company-icon" />
-              <h3>Eli Lilly <button className="ask-copilot-btn">Ask Copilot</button></h3>
-            </div>
-            <div className="update-details">
-              <span className="badge">Great Account Fit</span>
-              <span className="badge">Account in Salesforce</span>
-              <span className="badge">Target Account</span>
-              <p className="description">Eli Lilly is a pharmaceutical company with over 10K employees that develops and manufactures a range of healthcare products...</p>
-            </div>
-            <div className="recent-signals">
-              <h4>Recent signals</h4>
-              <p><strong>Last 30 days</strong></p>
-              <ul>
-                <li><a href="#">Hiring Plans:</a> Eli Lilly has more open roles in Engineering & Technical...</li>
-                <li><a href="#">Partnership:</a> Eli Lilly has joined the Workforce Council...</li>
-              </ul>
-            </div>
-            <button className="find-group-btn">Reach out to potential Buying Group members</button>
-          </div>
-          {/* <div className="customer-cards">
-            {customersData.map(customer => (
-              <div className="customer-card" key={customer.id}>
-                <h3>{customer.name}</h3>
-                <p><strong>Great Account Fit</strong> | Account in Salesforce | Target Account</p>
-                <p>{customer.description}</p>
-                <ul>
-                  <li>Hiring Plans: {customer.hiringPlans}</li>
-                  <li>Partnership: {customer.partnership}</li>
-                </ul>
-                <button className="copilot-btn">Ask Copilot</button>
-              </div>
-            ))}
-          </div> */}
-        </div>
-        {/* </main> */}
+            <div><h4>Reach out to potential Buying Group members <button className="find-group-btn">Find Buying Group</button></h4>
+            </div></div>
 
-        {/* Right Sidebar - 25% */}
-        <div className="right-sidebar">
-          {/* This section is reserved for the chatbot */}
-        </div>
+        {/* Bubble Update Box import cashgrail from './assets/cashgrail.png'; */}
+       
 
-        {/* Functionalities Bar */}
-        {/* <div className={`functionalities-bar ${showFunctionalitiesBar ? "expanded" : ""}`} onClick={toggleFunctionalitiesBar}>
-          <p>{showFunctionalitiesBar ? "Click to see more functionalities" : "70% of functionalities used"}</p>
-          {showFunctionalitiesBar && (
-            <div className="functionalities-details">
-              <p>Unexplored Functionalities:</p>
+<div className="update-card">
+            <div className="update-header">
+              <img src={bubble} alt="icon" className="company-icon" />
+              <h3>
+              Bubble
+                <button className="ask-copilot-btn">Ask Copilot</button>
+              </h3>
+            </div>
+            <div className="update-details">
+              <span className="badge">Great Account Fit</span>
+              <span className="badge">Account in Salesforce</span>
+              <span className="badge">Target Account</span>
+              <p className="description">Bubble is a no-code platform that allows users to build fully customizable web applications and workflows. The company has 100 - 250 employees and generated $10M - $25M in revenue </p>
+            </div>
+            <div className="recent-signals">
+              <h4>Recent signals</h4>
+              <p><strong>Last 30 days</strong></p>
               <ul>
-                <li><a href="https://learningmaterial.com/feature1">Feature 1</a></li>
-                <li><a href="https://learningmaterial.com/feature2">Feature 2</a></li>
+                {/* <li><a href="#">Hiring Plans:</a> Ei Lilly has more open roles in Engineering & Technical than it has had at any time in the past 12 months.</li> */}
+                <li><a href="#">Mergers & Acquisitions (M&A):</a> Bubble has entered into an agreement to acquire Flusk.<a href="#" class="smallSource">Source</a></li>
               </ul>
             </div>
-          )}
-        </div> */}
-      </div>
-    </div>
+            <div><h4>Reach out to potential Buying Group members <button className="find-group-btn">Find Buying Group</button></h4>
+            </div></div>
+           {/* cashgrail Update Box import cashgrail from './assets/cashgrail.png'; */}
+       
+
+<div className="update-card">
+            <div className="update-header">
+              <img src={cashgrail} alt="icon" className="company-icon" />
+              <h3>
+              Cashgrail
+                <button className="ask-copilot-btn">Ask Copilot</button>
+              </h3>
+            </div>
+            <div className="update-details">
+              <span className="badge">Great Account Fit</span>
+              <span className="badge">Account in Salesforce</span>
+              <span className="badge">Target Account</span>
+              <p className="description">Cashgril is a fintech company specializing in digital payment solutions, with approximately 500-1000 employees. It generated an estimated $15 million in revenue last year, driven by partnerships with major e-commerce platforms. </p>
+            </div>
+            <div className="recent-signals">
+              <h4>Recent signals</h4>
+              <p><strong>Last 30 days</strong></p>
+              <ul>
+                <li><a href="#">Funding:</a>Cashgril recently secured a Series B funding round, raising $50 million from several venture capital firms.<a href="#" class="smallSource">Source</a></li>
+                <li><a href="#">Product Launch:</a> Cashgril has introduced a new feature for instant cross-border payments, increasing accessibility for international customers.<a href="#" class="smallSource">Source</a></li>
+              </ul>
+            </div>
+            <div><h4>Reach out to potential Buying Group members <button className="find-group-btn">Find Buying Group</button></h4>
+            </div></div>
+       
+
+          {/* Right Sidebar - 25% */}
+          <div className="right-sidebar">
+            {/* This section is reserved for the chatbot */}
+          </div>
+        </div>
+      </div >
+    </div >
   );
 }
 
