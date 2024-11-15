@@ -1,8 +1,9 @@
-import React from 'react';
-import { Bar, Doughnut } from 'react-chartjs-2';
-import { customersData } from './data';
-import './InsightAlertDashboard.css';
-import InsightAlertIcon from './assets/InsightAlert.png';
+import React from "react";
+import { Bar, Doughnut } from "react-chartjs-2";
+import { customersData } from "./data";
+import "./InsightAlertDashboard.css";
+import InsightAlertIcon from "./assets/InsightAlert.png";
+import dialpad from "./assets/num.png";
 import {
   Chart as ChartJS,
   ArcElement,
@@ -12,12 +13,22 @@ import {
   Title,
   Tooltip,
   Legend,
-} from 'chart.js';
+} from "chart.js";
 
-ChartJS.register(ArcElement, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+ChartJS.register(
+  ArcElement,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 const InsightAlertDashboard = ({ selectedCustomerId }) => {
-  const customerData = customersData.find((customer) => customer.id === selectedCustomerId);
+  const customerData = customersData.find(
+    (customer) => customer.id === selectedCustomerId
+  );
 
   if (!customerData) return <div>Customer data not found</div>;
 
@@ -27,33 +38,72 @@ const InsightAlertDashboard = ({ selectedCustomerId }) => {
     <div className="insight-alert-dashboard">
       <header className="header">
         <div className="header-left">
-          <div className="logo">Sales<sup>+</sup></div>
+          <div className="logo">
+            Sales<sup>+</sup>
+          </div>
           <div className="search-container">
-            <input type="text" className="search-bar" placeholder="Search for companies, contacts, industries, etc." />
+            <input
+              type="text"
+              className="search-bar"
+              placeholder="Search for companies, contacts, industries, etc."
+            />
             <span className="advanced-search">Advanced Search</span>
           </div>
         </div>
         <nav className="header-menu">
-          <a href="#" className="menu-item">Home</a>
-          <a href="#" className="menu-item">Intent</a>
-          <a href="#" className="menu-item">Tracker</a>
-          <a href="#" className="menu-item">Lists</a>
-          <a href="#" className="menu-item">WebSights</a>
-          <a href="#" className="menu-item">Workflows</a>
-          <a href="#" className="menu-item">Chat</a>
-          <a href="#" className="menu-item">More</a>
+          <a href="#" className="menu-item">
+            Home
+          </a>
+          <a href="#" className="menu-item">
+            Intent
+          </a>
+          <a href="#" className="menu-item">
+            Tracker
+          </a>
+          <a href="#" className="menu-item">
+            Lists
+          </a>
+          <a href="#" className="menu-item">
+            WebSights
+          </a>
+          <a href="#" className="menu-item">
+            Workflows
+          </a>
+          <a href="#" className="menu-item">
+            Chat
+          </a>
+          <a href="#" className="menu-item">
+            More
+          </a>
           <span className="notification-icon">🔔</span>
+          <img src={dialpad} alt="Insight Alert Icon" />
+          {/* <span className="notification-icon">
+            <FontAwesomeIcon icon={faTh} />
+          </span> */}
+
+          <div className="user-initials">FG</div>
         </nav>
       </header>
-      <header>
-        <img src={InsightAlertIcon} alt="Insight Alert Icon" className="insight-alert-icon" /> 
-        <h1>Insight Alert Dashboard</h1>
-        <p>Actionable Data for Optimal Results</p>
-        <div className="manager-info">
-          <span><strong>Account Manager:</strong> Spandana Chandra</span>
-          <span><strong>Customer Success Manager:</strong> Jayakrishna Thirumeni</span>
+
+      <section className="subheader">
+        <div className="insight-alert">
+          <img
+            src={InsightAlertIcon}
+            alt="Insight Alert Icon"
+            className="insight-alert-icon"
+          />
+          <h2>Insight Alert Dashboard</h2>
         </div>
-      </header>
+        <p className="subheader-text">Actionable Data for Optimal Results</p>
+        <div className="manager-info">
+          <span>
+            <strong>Account Manager:</strong> Spandana Chandra
+          </span>
+          <span>
+            <strong>Customer Success Manager:</strong> Jayakrishna Thirumeni
+          </span>
+        </div>
+      </section>
 
       <div className="dashboard-sections">
         {/* Account Fit Score */}
@@ -161,7 +211,7 @@ const InsightAlertDashboard = ({ selectedCustomerId }) => {
                 },
               ],
             }}
-            options={{ responsive: true, indexAxis: 'y' }}
+            options={{ responsive: true, indexAxis: "y" }}
             width={300}
             height={300}
           />
@@ -195,7 +245,13 @@ const InsightAlertDashboard = ({ selectedCustomerId }) => {
               datasets: [
                 {
                   ...sections.recommendedPlays.chartData.datasets[0],
-                  backgroundColor: ["#a155b9", "#9e5fbb", "#5f63eb", "#b63ab9", "#6e1c75"],
+                  backgroundColor: [
+                    "#a155b9",
+                    "#9e5fbb",
+                    "#5f63eb",
+                    "#b63ab9",
+                    "#6e1c75",
+                  ],
                 },
               ],
             }}
