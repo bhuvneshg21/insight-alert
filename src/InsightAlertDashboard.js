@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Bar, Doughnut } from "react-chartjs-2";
 import { customersData } from "./data";
 import "./InsightAlertDashboard.css";
-import { data } from "./data";
 import InsightAlertIcon from "./assets/InsightAlert.png";
 import dialpad from "./assets/num.png";
+import { data } from "./data";
 import {
   Chart as ChartJS,
   ArcElement,
@@ -27,21 +27,20 @@ ChartJS.register(
 );
 
 const InsightAlertDashboard = ({ selectedCustomerId }) => {
-  const customerData = customersData.find(
-    (customer) => customer.id === selectedCustomerId
-  );
-
-  if (!customerData) return <div>Customer data not found</div>;
-
-  const { sections } = customerData;
-
+  // Ensure `useState` is called without any conditional logic
   const [dateRange, setDateRange] = useState("Current Month");
-  const chartData = data[dateRange];
 
+  // Safely get chartData or use default values
+  const chartData = data[dateRange] || {
+    accountFit: { chartData: {}, tableData: [], recommendation: "" },
+    contactDataAccuracy: { chartData: {}, tableData: [], recommendation: "" },
+    engagementFunnel: { chartData: {}, tableData: [], recommendation: "" },
+    recommendedPlays: { chartData: {}, tableData: [], recommendation: "" },
+  };
+
+  // Safely define the download function
   const handleDownload = (fileName, tableData) => {
-    // Ensure fileName and tableData are defined before executing the function
-    if (!fileName || !tableData) return;
-
+    if (!fileName || !Array.isArray(tableData)) return; // Safeguard for undefined or non-array tableData
     const csvContent = tableData.map((row) => row.join(",")).join("\n");
     const blob = new Blob([csvContent], { type: "text/csv" });
     const url = window.URL.createObjectURL(blob);
@@ -50,6 +49,14 @@ const InsightAlertDashboard = ({ selectedCustomerId }) => {
     a.download = `${fileName}.csv`;
     a.click();
   };
+
+  const customerData = customersData.find(
+    (customer) => customer.id === selectedCustomerId
+  );
+
+  if (!customerData) return <div>Customer data not found</div>;
+
+  const { sections } = customerData;
 
   return (
     <div className="insight-alert-dashboard">
@@ -103,11 +110,11 @@ const InsightAlertDashboard = ({ selectedCustomerId }) => {
       </header>
 
       <section className="subheader">
-        <div className="header-left">
+        <div className="subheader-left">
           <h1>Insight Alert Dashboard</h1>
           <h2>Actionable Data for Optimal Results</h2>
         </div>
-        <div className="header-right">
+        <div className="subheader-right">
           <div className="manager">
             <span>
               Account Manager: <strong>Spandana Chandra</strong>
@@ -141,25 +148,29 @@ const InsightAlertDashboard = ({ selectedCustomerId }) => {
             <i className="download-icon">↓</i> Download
           </button>
         </div>
-        <Bar data={chartData.accountFit.chartData} />
-        <table className="data-table">
-          <thead>
-            <tr>
-              <th>Account Fit Score</th>
-              <th>Target Accounts</th>
-              <th>Whitespace Companies</th>
-            </tr>
-          </thead>
-          <tbody>
-            {chartData.accountFit.tableData.map((row, idx) => (
-              <tr key={idx}>
-                <td>{row[0]}</td>
-                <td>{row[1]}</td>
-                <td>{row[2]}</td>
+        {chartData.accountFit.chartData && (
+          <Bar data={chartData.accountFit.chartData} />
+        )}
+        {chartData.accountFit.tableData && (
+          <table className="data-table">
+            <thead>
+              <tr>
+                <th>Account Fit Score</th>
+                <th>Target Accounts</th>
+                <th>Whitespace Companies</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {chartData.accountFit.tableData.map((row, idx) => (
+                <tr key={idx}>
+                  <td>{row[0]}</td>
+                  <td>{row[1]}</td>
+                  <td>{row[2]}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
         <p className="recommendation">
           <strong>Recommendation:</strong> {chartData.accountFit.recommendation}
         </p>
@@ -180,32 +191,36 @@ const InsightAlertDashboard = ({ selectedCustomerId }) => {
             <i className="download-icon">↓</i> Download
           </button>
         </div>
-        <Bar
-          data={chartData.contactDataAccuracy.chartData}
-          options={{ indexAxis: "y" }} // Make it horizontal
-        />
-        <table className="data-table">
-          <thead>
-            <tr>
-              <th>Contact Data Accuracy</th>
-              <th>Aaron</th>
-              <th>Chris</th>
-              <th>Kenith</th>
-              <th>Clara</th>
-            </tr>
-          </thead>
-          <tbody>
-            {chartData.contactDataAccuracy.tableData.map((row, idx) => (
-              <tr key={idx}>
-                <td>{row[0]}</td>
-                <td>{row[1]}</td>
-                <td>{row[2]}</td>
-                <td>{row[3]}</td>
-                <td>{row[4]}</td>
+        {chartData.contactDataAccuracy.chartData && (
+          <Bar
+            data={chartData.contactDataAccuracy.chartData}
+            options={{ indexAxis: "y" }} // Make it horizontal
+          />
+        )}
+        {chartData.contactDataAccuracy.tableData && (
+          <table className="data-table">
+            <thead>
+              <tr>
+                <th>Contact Data Accuracy</th>
+                <th>Aaron</th>
+                <th>Chris</th>
+                <th>Kenith</th>
+                <th>Clara</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {chartData.contactDataAccuracy.tableData.map((row, idx) => (
+                <tr key={idx}>
+                  <td>{row[0]}</td>
+                  <td>{row[1]}</td>
+                  <td>{row[2]}</td>
+                  <td>{row[3]}</td>
+                  <td>{row[4]}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
         <p className="recommendation">
           <strong>Recommendation:</strong>{" "}
           {chartData.contactDataAccuracy.recommendation}
@@ -227,28 +242,32 @@ const InsightAlertDashboard = ({ selectedCustomerId }) => {
             <i className="download-icon">↓</i> Download
           </button>
         </div>
-        <Bar
-          data={chartData.engagementFunnel.chartData}
-          options={{ indexAxis: "y" }} // Make it horizontal
-        />
-        <table className="data-table">
-          <thead>
-            <tr>
-              <th>Engagement Funnel</th>
-              <th>Target Accounts</th>
-              <th>Whitespace Companies</th>
-            </tr>
-          </thead>
-          <tbody>
-            {chartData.engagementFunnel.tableData.map((row, idx) => (
-              <tr key={idx}>
-                <td>{row[0]}</td>
-                <td>{row[1]}</td>
-                <td>{row[2]}</td>
+        {chartData.engagementFunnel.chartData && (
+          <Bar
+            data={chartData.engagementFunnel.chartData}
+            options={{ indexAxis: "y" }} // Make it horizontal
+          />
+        )}
+        {chartData.engagementFunnel.tableData && (
+          <table className="data-table">
+            <thead>
+              <tr>
+                <th>Engagement Funnel</th>
+                <th>Target Accounts</th>
+                <th>Whitespace Companies</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {chartData.engagementFunnel.tableData.map((row, idx) => (
+                <tr key={idx}>
+                  <td>{row[0]}</td>
+                  <td>{row[1]}</td>
+                  <td>{row[2]}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
         <p className="recommendation">
           <strong>Recommendation:</strong>{" "}
           {chartData.engagementFunnel.recommendation}
@@ -270,23 +289,27 @@ const InsightAlertDashboard = ({ selectedCustomerId }) => {
             <i className="download-icon">↓</i> Download
           </button>
         </div>
-        <Doughnut data={chartData.recommendedPlays.chartData} />
-        <table className="data-table">
-          <thead>
-            <tr>
-              <th>Recommended Plays</th>
-              <th>Target Accounts</th>
-            </tr>
-          </thead>
-          <tbody>
-            {chartData.recommendedPlays.tableData.map((row, idx) => (
-              <tr key={idx}>
-                <td>{row[0]}</td>
-                <td>{row[1]}</td>
+        {chartData.recommendedPlays.chartData && (
+          <Doughnut data={chartData.recommendedPlays.chartData} />
+        )}
+        {chartData.recommendedPlays.tableData && (
+          <table className="data-table">
+            <thead>
+              <tr>
+                <th>Recommended Plays</th>
+                <th>Target Accounts</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {chartData.recommendedPlays.tableData.map((row, idx) => (
+                <tr key={idx}>
+                  <td>{row[0]}</td>
+                  <td>{row[1]}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
         <p className="recommendation">
           <strong>Recommendation:</strong>{" "}
           {chartData.recommendedPlays.recommendation}
