@@ -1,8 +1,20 @@
-export const data = {
+export const allChartData = {
   "Current Month": {
     accountFit: {
       chartData: {
-        /* chart data object */
+        labels: ["Great Fit", "Moderate Fit", "Low Fit"],
+        datasets: [
+          {
+            label: "Target Accounts",
+            data: [40, 30, 10],
+            backgroundColor: ["#4CAF50", "#FFC107", "#F44336"],
+          },
+          {
+            label: "Whitespace Companies",
+            data: [60, 70, 90],
+            backgroundColor: ["#2196F3", "#3F51B5", "#9C27B0"],
+          },
+        ],
       },
       tableData: [
         ["Great Fit", 40, 25],
@@ -14,7 +26,24 @@ export const data = {
     },
     contactDataAccuracy: {
       chartData: {
-        /* chart data object */
+        labels: ["Aaron", "Chris", "Kenith", "Clara"],
+        datasets: [
+          {
+            label: "YTD Contact Data",
+            data: [10, 12, 16, 24],
+            backgroundColor: "#4CAF50",
+          },
+          {
+            label: "Contact Exported",
+            data: [8, 10, 10, 20],
+            backgroundColor: "#FFC107",
+          },
+          {
+            label: "Outdated Contact Data",
+            data: [4, 8, 4, 6],
+            backgroundColor: "#F44336",
+          },
+        ],
       },
       tableData: [
         ["YTD Contacts", 10, 12, 16, 24],
@@ -26,7 +55,19 @@ export const data = {
     },
     engagementFunnel: {
       chartData: {
-        /* chart data object */
+        labels: ["Accounts with Signals", "Signals Viewed", "Signals Actioned"],
+        datasets: [
+          {
+            label: "Whitespace Companies",
+            data: [18, 14, 6],
+            backgroundColor: "#4CAF50",
+          },
+          {
+            label: "Target Accounts",
+            data: [16, 8, 3],
+            backgroundColor: "#2196F3",
+          },
+        ],
       },
       tableData: [
         ["Accounts with Signals", 18, 16],
@@ -38,7 +79,25 @@ export const data = {
     },
     recommendedPlays: {
       chartData: {
-        /* chart data object */
+        labels: [
+          "Researched Intent Topics",
+          "Find Buying Group",
+          "Funding",
+          "Hiring Plans",
+          "Send AI Email",
+        ],
+        datasets: [
+          {
+            data: [21, 20, 14, 12, 8],
+            backgroundColor: [
+              "#4CAF50",
+              "#FFC107",
+              "#F44336",
+              "#2196F3",
+              "#3F51B5",
+            ],
+          },
+        ],
       },
       tableData: [
         ["Researched Intent Topics", 21],
@@ -54,7 +113,19 @@ export const data = {
   "Past Month": {
     accountFit: {
       chartData: {
-        /* chart data object */
+        labels: ["Great Fit", "Moderate Fit", "Low Fit"],
+        datasets: [
+          {
+            label: "Target Accounts",
+            data: [50, 35, 15],
+            backgroundColor: ["#4CAF50", "#FFC107", "#F44336"],
+          },
+          {
+            label: "Whitespace Companies",
+            data: [30, 25, 8],
+            backgroundColor: ["#2196F3", "#3F51B5", "#9C27B0"],
+          },
+        ],
       },
       tableData: [
         ["Great Fit", 50, 30],
@@ -62,11 +133,28 @@ export const data = {
         ["Low Fit", 15, 8],
       ],
       recommendation:
-        " We’ve identified 50 Great Fit Target Accounts that align with your ideal customer profile (ICP) based on factors like industry, size, location, revenue, and tech stack. Prioritizing these accounts can boost your outreach success. Download the data and take action.",
+        "We’ve identified 50 Great Fit Target Accounts for outreach success. Download the data and prioritize these accounts for engagement.",
     },
     contactDataAccuracy: {
       chartData: {
-        /* chart data object */
+        labels: ["Aaron", "Chris", "Kenith", "Clara"],
+        datasets: [
+          {
+            label: "YTD Contact Data",
+            data: [15, 20, 18, 14],
+            backgroundColor: "#4CAF50",
+          },
+          {
+            label: "Contact Exported",
+            data: [18, 20, 15, 25],
+            backgroundColor: "#FFC107",
+          },
+          {
+            label: "Outdated Contact Data",
+            data: [2, 4, 10, 8],
+            backgroundColor: "#F44336",
+          },
+        ],
       },
       tableData: [
         ["YTD Contacts", 15, 20, 18, 14],
@@ -78,7 +166,19 @@ export const data = {
     },
     engagementFunnel: {
       chartData: {
-        /* chart data object */
+        labels: ["Accounts with Signals", "Signals Viewed", "Signals Actioned"],
+        datasets: [
+          {
+            label: "Whitespace Companies",
+            data: [28, 24, 16],
+            backgroundColor: "#4CAF50",
+          },
+          {
+            label: "Target Accounts",
+            data: [26, 18, 10],
+            backgroundColor: "#2196F3",
+          },
+        ],
       },
       tableData: [
         ["Accounts with Signals", 28, 26],
@@ -86,11 +186,29 @@ export const data = {
         ["Signals Actioned", 16, 10],
       ],
       recommendation:
-        "The Engagement Funnel in ZoomInfo CoPilot tracks and visualizes how prospects and leads interact with your outreach efforts over time. Only 15% of the Target Accounts were actioned in the last month. We recommend optimizing your engagement strategies as per the data and improve conversation rates.",
+        "Optimize your engagement strategies to improve conversion rates. Only 15% of accounts were actioned last month.",
     },
     recommendedPlays: {
       chartData: {
-        /* chart data object */
+        labels: [
+          "Researched Intent Topics",
+          "Find Buying Group",
+          "Funding",
+          "Hiring Plans",
+          "Send AI Email",
+        ],
+        datasets: [
+          {
+            data: [15, 25, 12, 16, 18],
+            backgroundColor: [
+              "#4CAF50",
+              "#FFC107",
+              "#F44336",
+              "#2196F3",
+              "#3F51B5",
+            ],
+          },
+        ],
       },
       tableData: [
         ["Researched Intent Topics", 15],
@@ -100,10 +218,12 @@ export const data = {
         ["Send AI Email", 18],
       ],
       recommendation:
-        " Recommended Plays in ZoomInfo CoPilot are personalized outreach strategies based on data insights. The above data will guide you on the next best steps, like sending follow-up emails, making calls, or sharing content. Ask “Schuckmeister,” our chatbot, for more details. Reach out to your Customer Success Manager to utilize the feature effectively.",
+        "Recommended Plays offer actionable insights for outreach strategies. Use them to maximize engagement success.",
     },
   },
 };
+
+export default allChartData;
 
 // Data for the Insight Alert box
 export const insightAlertBoxData = {
