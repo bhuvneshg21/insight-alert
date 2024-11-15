@@ -27,20 +27,38 @@ ChartJS.register(
 );
 
 const InsightAlertDashboard = ({ selectedCustomerId }) => {
-  // Ensure `useState` is called without any conditional logic
+  // Set date range state
   const [dateRange, setDateRange] = useState("Current Month");
 
-  // Safely get chartData or use default values
+  // Safely retrieve chart data or use default structure
   const chartData = data[dateRange] || {
-    accountFit: { chartData: {}, tableData: [], recommendation: "" },
-    contactDataAccuracy: { chartData: {}, tableData: [], recommendation: "" },
-    engagementFunnel: { chartData: {}, tableData: [], recommendation: "" },
-    recommendedPlays: { chartData: {}, tableData: [], recommendation: "" },
+    accountFit: {
+      chartData: { labels: [], datasets: [] },
+      tableData: [],
+      recommendation: "",
+    },
+    contactDataAccuracy: {
+      chartData: { labels: [], datasets: [] },
+      tableData: [],
+      recommendation: "",
+    },
+    engagementFunnel: {
+      chartData: { labels: [], datasets: [] },
+      tableData: [],
+      recommendation: "",
+    },
+    recommendedPlays: {
+      chartData: { labels: [], datasets: [] },
+      tableData: [],
+      recommendation: "",
+    },
   };
 
-  // Safely define the download function
+  // Debugging: log chartData to ensure structure is correct
+  console.log("chartData:", chartData);
+
   const handleDownload = (fileName, tableData) => {
-    if (!fileName || !Array.isArray(tableData)) return; // Safeguard for undefined or non-array tableData
+    if (!fileName || !Array.isArray(tableData)) return;
     const csvContent = tableData.map((row) => row.join(",")).join("\n");
     const blob = new Blob([csvContent], { type: "text/csv" });
     const url = window.URL.createObjectURL(blob);
@@ -50,13 +68,13 @@ const InsightAlertDashboard = ({ selectedCustomerId }) => {
     a.click();
   };
 
-  const customerData = customersData.find(
-    (customer) => customer.id === selectedCustomerId
-  );
+  // const customerData = customersData.find(
+  //   (customer) => customer.id === selectedCustomerId
+  // );
 
-  if (!customerData) return <div>Customer data not found</div>;
+  // if (!customerData) return <div>Customer data not found</div>;
 
-  const { sections } = customerData;
+  // const { sections } = customerData;
 
   return (
     <div className="insight-alert-dashboard">
@@ -148,9 +166,10 @@ const InsightAlertDashboard = ({ selectedCustomerId }) => {
             <i className="download-icon">↓</i> Download
           </button>
         </div>
-        {chartData.accountFit.chartData && (
-          <Bar data={chartData.accountFit.chartData} />
-        )}
+        {chartData.accountFit.chartData &&
+          chartData.accountFit.chartData.datasets?.length > 0 && (
+            <Bar data={chartData.accountFit.chartData} />
+          )}
         {chartData.accountFit.tableData && (
           <table className="data-table">
             <thead>
@@ -191,12 +210,13 @@ const InsightAlertDashboard = ({ selectedCustomerId }) => {
             <i className="download-icon">↓</i> Download
           </button>
         </div>
-        {chartData.contactDataAccuracy.chartData && (
-          <Bar
-            data={chartData.contactDataAccuracy.chartData}
-            options={{ indexAxis: "y" }} // Make it horizontal
-          />
-        )}
+        {chartData.contactDataAccuracy.chartData &&
+          chartData.contactDataAccuracy.chartData.datasets?.length > 0 && (
+            <Bar
+              data={chartData.contactDataAccuracy.chartData}
+              options={{ indexAxis: "y" }} // Horizontal bar chart
+            />
+          )}
         {chartData.contactDataAccuracy.tableData && (
           <table className="data-table">
             <thead>
@@ -242,12 +262,13 @@ const InsightAlertDashboard = ({ selectedCustomerId }) => {
             <i className="download-icon">↓</i> Download
           </button>
         </div>
-        {chartData.engagementFunnel.chartData && (
-          <Bar
-            data={chartData.engagementFunnel.chartData}
-            options={{ indexAxis: "y" }} // Make it horizontal
-          />
-        )}
+        {chartData.engagementFunnel.chartData &&
+          chartData.engagementFunnel.chartData.datasets?.length > 0 && (
+            <Bar
+              data={chartData.engagementFunnel.chartData}
+              options={{ indexAxis: "y" }} // Horizontal bar chart
+            />
+          )}
         {chartData.engagementFunnel.tableData && (
           <table className="data-table">
             <thead>
@@ -289,9 +310,10 @@ const InsightAlertDashboard = ({ selectedCustomerId }) => {
             <i className="download-icon">↓</i> Download
           </button>
         </div>
-        {chartData.recommendedPlays.chartData && (
-          <Doughnut data={chartData.recommendedPlays.chartData} />
-        )}
+        {chartData.recommendedPlays.chartData &&
+          chartData.recommendedPlays.chartData.datasets?.length > 0 && (
+            <Doughnut data={chartData.recommendedPlays.chartData} />
+          )}
         {chartData.recommendedPlays.tableData && (
           <table className="data-table">
             <thead>
