@@ -166,7 +166,7 @@ function HomePage() {
             </ul>
             <h4 class="nomargin">Unexplored Features</h4>
             <ul class="nomargin">
-              <li>You have not set up the Intent topics.</li>
+              <li>You have not set up the Intent topics</li>
             </ul>
           </div>
           {/* <button
@@ -193,15 +193,13 @@ function HomePage() {
             className="feature-usage-bar"
             onClick={() => navigate(`/insight-alert/${selectedCustomer.id}`)}
           >
-            <div
-              className="feature-usage-progress"
-              style={{ width: "65%" }}
-            ></div>
-            <span className="feature-usage-text">
-              You have used 65% of the features.
-            </span>
+            <div className="feature-usage-progress" style={{ width: "65%" }}>
+              <span className="feature-usage-text">
+                You have used 65% of the features.
+              </span>
+            </div>
           </div>
-          <div className="need-help-box nomargin">
+          <div className="need-help-box">
             <h3 className="need-help-title nomargin">Need Help? </h3>
             <p className="need-help-subtext nomargin">
               Contact Customer Success Manager or Account Manager
@@ -210,17 +208,29 @@ function HomePage() {
             <div className="manager-section nomargin">
               <h4 class="nomargin">Customer Success Manager</h4>
               <p className="manager-name nomargin">Jayakrishna thirumeni</p>
-              <p className="manager-email nomargin">
-                Jayakrishna.thirumeni@Zoominfo.com
-              </p>
+              {/* <p className="manager-email nomargin">
+                Jayakrishna.thirumeni@zoominfo.com
+              </p> */}
+              <a
+                href="mailto:Jayakrishna.thirumeni@zoominfo.com"
+                className="manager-email"
+              >
+                Jayakrishna.thirumeni@zoominfo.com
+              </a>
             </div>
 
             <div className="manager-section nomargin">
               <h4 class="nomargin">Account Manager</h4>
               <p className="manager-name nomargin">Spandana Chandra</p>
-              <p className="manager-email nomargin">
-                Spandana.chandra@Zoominfo.com
-              </p>
+              {/* <a className="manager-email nomargin">
+                Spandana.chandra@zoominfo.com
+              </a> */}
+              <a
+                href="mailto:Spandana.chandra@zoominfo.com"
+                className="manager-email"
+              >
+                Spandana.chandra@zoominfo.com
+              </a>
             </div>
           </div>
         </div>

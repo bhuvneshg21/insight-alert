@@ -6,13 +6,6 @@
   height: 100vh;
 }
 
-/* .header {
-  background: #1a1a2e;
-  color: white;
-  padding: 15px;
-  text-align: center;
-} */
-
 .nav {
   display: flex;
   justify-content: center;
@@ -235,7 +228,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #002f5d;
+  background: #010d39;
   color: white;
   padding: 5px;
 }
@@ -388,6 +381,7 @@ body {
 .insight-alert-header {
   display: flex;
   align-items: flex-start;
+  margin-top: 15px;
 }
 
 .insight-alert-icon {
@@ -416,7 +410,7 @@ body {
   overflow: hidden;
   position: relative;
   cursor: pointer;
-  margin-top: 20px;
+  margin-top: 15px;
   display: flex;
   align-items: center;
   height: 35px;
@@ -430,10 +424,12 @@ body {
 .feature-usage-text {
   position: absolute;
   width: 100%;
-  text-align: center;
+  text-align: left;
   color: white;
   font-weight: bold;
   pointer-events: none;
+  margin-top: 7px;
+  margin-left: 5px;
 }
 
 .top-updates-box {
@@ -523,12 +519,12 @@ body {
 
 .manager-email {
   font-size: 0.9em;
-  color: #666;
+  /* color: #666; */
   margin-bottom: 10px;
 }
 .sSource {
   font-weight: 900; /* Makes the link text bold */
-  margin-top: 5px; /* Adds a 5px top margin */
+  margin-top: 15px; /* Adds a 5px top margin */
   display: inline-block; /* Ensures the top margin applies correctly */
 }
 .dashboard-button {
@@ -562,6 +558,42 @@ body {
 }
 
 .dashboard-icon {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.email-button {
+  background: linear-gradient(
+    135deg,
+    rgba(27, 42, 64, 0.8),
+    rgba(37, 59, 88, 0.8)
+  );
+  color: #ffffff;
+  padding: 12px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none; /* Remove underline */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+}
+
+.email-button:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(37, 59, 88, 0.9),
+    rgba(47, 76, 114, 0.9)
+  );
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.email-icon {
   font-size: 20px;
   margin-right: 10px;
 }
