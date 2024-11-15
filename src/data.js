@@ -1,3 +1,110 @@
+export const data = {
+  "Current Month": {
+    accountFit: {
+      chartData: {
+        /* chart data object */
+      },
+      tableData: [
+        ["Great Fit", 40, 25],
+        ["Moderate Fit", 25, 16],
+        ["Low Fit", 10, 5],
+      ],
+      recommendation:
+        "We’ve identified 40 Great Fit Target Accounts that align with your ideal customer profile (ICP) based on factors like industry, size, location, revenue, and tech stack. Prioritizing these accounts can boost your outreach success. Download the data and take action.",
+    },
+    contactDataAccuracy: {
+      chartData: {
+        /* chart data object */
+      },
+      tableData: [
+        ["YTD Contacts", 10, 12, 16, 24],
+        ["Contact Exported", 8, 10, 10, 20],
+        ["Outdated", 4, 8, 4, 6],
+      ],
+      recommendation:
+        "We’ve identified that 16.67% contact data in your export data is outdated. Based on your contact data, we've identified that 16.67% of the data is outdated. The Enrich feature in ZoomInfo CoPilot can automatically update and enhance your CRM or database with the most up-to-date information on your leads and accounts. Ask “Schuckmeister”, our chatbot assistant to learn more about Enrich feature. Reach out to your Account Manager to upgrade your subscription.",
+    },
+    engagementFunnel: {
+      chartData: {
+        /* chart data object */
+      },
+      tableData: [
+        ["Accounts with Signals", 18, 16],
+        ["Signals Viewed", 14, 8],
+        ["Signals Actioned", 6, 3],
+      ],
+      recommendation:
+        "The Engagement Funnel in ZoomInfo CoPilot tracks and visualizes how prospects and leads interact with your outreach efforts over time. Only 15% of the Target Accounts were actioned in the last month. We recommend optimizing your engagement strategies as per the data and improve conversation rates.",
+    },
+    recommendedPlays: {
+      chartData: {
+        /* chart data object */
+      },
+      tableData: [
+        ["Researched Intent Topics", 21],
+        ["Find Buying Group", 20],
+        ["Funding", 14],
+        ["Hiring Plans", 12],
+        ["Send AI Email", 8],
+      ],
+      recommendation:
+        " Recommended Plays in ZoomInfo CoPilot are personalized outreach strategies based on data insights. The above data will guide you on the next best steps, like sending follow-up emails, making calls, or sharing content. Ask “Schuckmeister,” our chatbot, for more details. Reach out to your Customer Success Manager to utilize the feature effectively.",
+    },
+  },
+  "Past Month": {
+    accountFit: {
+      chartData: {
+        /* chart data object */
+      },
+      tableData: [
+        ["Great Fit", 50, 30],
+        ["Moderate Fit", 35, 25],
+        ["Low Fit", 15, 8],
+      ],
+      recommendation:
+        " We’ve identified 50 Great Fit Target Accounts that align with your ideal customer profile (ICP) based on factors like industry, size, location, revenue, and tech stack. Prioritizing these accounts can boost your outreach success. Download the data and take action.",
+    },
+    contactDataAccuracy: {
+      chartData: {
+        /* chart data object */
+      },
+      tableData: [
+        ["YTD Contacts", 15, 20, 18, 14],
+        ["Contact Exported", 18, 20, 15, 25],
+        ["Outdated", 2, 4, 10, 8],
+      ],
+      recommendation:
+        "We’ve identified that 16.67% contact data in your export data is outdated. Based on your contact data, we've identified that 16.67% of the data is outdated. The Enrich feature in ZoomInfo CoPilot can automatically update and enhance your CRM or database with the most up-to-date information on your leads and accounts. Ask “Schuckmeister”, our chatbot assistant to learn more about Enrich feature. Reach out to your Account Manager to upgrade your subscription.",
+    },
+    engagementFunnel: {
+      chartData: {
+        /* chart data object */
+      },
+      tableData: [
+        ["Accounts with Signals", 28, 26],
+        ["Signals Viewed", 24, 18],
+        ["Signals Actioned", 16, 10],
+      ],
+      recommendation:
+        "The Engagement Funnel in ZoomInfo CoPilot tracks and visualizes how prospects and leads interact with your outreach efforts over time. Only 15% of the Target Accounts were actioned in the last month. We recommend optimizing your engagement strategies as per the data and improve conversation rates.",
+    },
+    recommendedPlays: {
+      chartData: {
+        /* chart data object */
+      },
+      tableData: [
+        ["Researched Intent Topics", 15],
+        ["Find Buying Group", 25],
+        ["Funding", 12],
+        ["Hiring Plans", 16],
+        ["Send AI Email", 18],
+      ],
+      recommendation:
+        " Recommended Plays in ZoomInfo CoPilot are personalized outreach strategies based on data insights. The above data will guide you on the next best steps, like sending follow-up emails, making calls, or sharing content. Ask “Schuckmeister,” our chatbot, for more details. Reach out to your Customer Success Manager to utilize the feature effectively.",
+    },
+  },
+};
+
 // Data for the Insight Alert box
 export const insightAlertBoxData = {
   usageData: [
@@ -19,9 +126,9 @@ export const insightAlertBoxData = {
 };
 // data.js
 export const needHelpData = [
-  { name: 'Alice Johnson', email: 'alice@example.com' },
-  { name: 'Bob Smith', email: 'bob@example.com' },
-  { name: 'Charlie Brown', email: 'charlie@example.com' },
+  { name: "Alice Johnson", email: "alice@example.com" },
+  { name: "Bob Smith", email: "bob@example.com" },
+  { name: "Charlie Brown", email: "charlie@example.com" },
 ];
 
 // data.js
@@ -46,7 +153,8 @@ export const customersData = [
           { fitLevel: "Moderate Fit", targetAccounts: 25, whitespace: 16 },
           { fitLevel: "Low Fit", targetAccounts: 10, whitespace: 5 },
         ],
-        description: "Recommendation: The Engagement Funnel in ZoomInfo CoPilot tracks and visualizes how prospects and leads interact with your outreach efforts over time. Only 15% of the Target Accounts were actioned in the last month. We recommend optimizing your engagement strategies as per the data and improve conversation rates.",
+        description:
+          "Recommendation: The Engagement Funnel in ZoomInfo CoPilot tracks and visualizes how prospects and leads interact with your outreach efforts over time. Only 15% of the Target Accounts were actioned in the last month. We recommend optimizing your engagement strategies as per the data and improve conversation rates.",
       },
       contactDataAccuracy: {
         chartData: {
@@ -70,7 +178,8 @@ export const customersData = [
           { name: "Kenith", exported: 14, outdated: 4 },
           { name: "Clara", exported: 10, outdated: 3 },
         ],
-        description: "Recommendation: We’ve identified 40 Great Fit Target Accounts that align with your ideal customer profile (ICP) based on factors like industry, size, location, revenue, and tech stack. Prioritizing these accounts can boost your outreach success. Download the data and take action.",
+        description:
+          "Recommendation: We’ve identified 40 Great Fit Target Accounts that align with your ideal customer profile (ICP) based on factors like industry, size, location, revenue, and tech stack. Prioritizing these accounts can boost your outreach success. Download the data and take action.",
       },
       engagementFunnel: {
         chartData: {
@@ -88,11 +197,18 @@ export const customersData = [
           { step: "Viewed", count: 20 },
           { step: "Actioned", count: 15 },
         ],
-        description: "Recommendation: We’ve identified that 16.67% contact data in your export data is outdated. Based on your contact data, we've identified that 16.67% of the data is outdated. The Enrich feature in ZoomInfo CoPilot can automatically update and enhance your CRM or database with the most up-to-date information on your leads and accounts. Ask “Schuckmeister”, our chatbot assistant to learn more about Enrich feature. Reach out to your Account Manager to upgrade your subscription.",
+        description:
+          "Recommendation: We’ve identified that 16.67% contact data in your export data is outdated. Based on your contact data, we've identified that 16.67% of the data is outdated. The Enrich feature in ZoomInfo CoPilot can automatically update and enhance your CRM or database with the most up-to-date information on your leads and accounts. Ask “Schuckmeister”, our chatbot assistant to learn more about Enrich feature. Reach out to your Account Manager to upgrade your subscription.",
       },
       recommendedPlays: {
         chartData: {
-          labels: ["Research", "Find Group", "Funding", "Hiring Plans", "AI Email"],
+          labels: [
+            "Research",
+            "Find Group",
+            "Funding",
+            "Hiring Plans",
+            "AI Email",
+          ],
           datasets: [
             {
               label: "Recommended Plays",
@@ -108,7 +224,8 @@ export const customersData = [
           { play: "Hiring Plans", targetAccounts: 12 },
           { play: "AI Email", targetAccounts: 8 },
         ],
-        description: "Recommendation: Recommended Plays in ZoomInfo CoPilot are personalized outreach strategies based on data insights. The above data will guide you on the next best steps, like sending follow-up emails, making calls, or sharing content. Ask “Schuckmeister,” our chatbot, for more details. Reach out to your Customer Success Manager to utilize the feature effectiv",
+        description:
+          "Recommendation: Recommended Plays in ZoomInfo CoPilot are personalized outreach strategies based on data insights. The above data will guide you on the next best steps, like sending follow-up emails, making calls, or sharing content. Ask “Schuckmeister,” our chatbot, for more details. Reach out to your Customer Success Manager to utilize the feature effectiv",
       },
     },
   },
@@ -367,8 +484,7 @@ export const customersData = [
   },
 ];
 
-
-  // data.js
+// data.js
 export const insightAlertsData = [
   {
     customer_id: "123",
@@ -384,10 +500,22 @@ export const insightAlertsData = [
       signals_total: 30,
     },
     contact_data_accuracy: {
-      Aaron: { contacts_exported: 10, outdated_contacts: 4, total_contacts: 12 },
+      Aaron: {
+        contacts_exported: 10,
+        outdated_contacts: 4,
+        total_contacts: 12,
+      },
       Chris: { contacts_exported: 8, outdated_contacts: 6, total_contacts: 10 },
-      Kenith: { contacts_exported: 14, outdated_contacts: 4, total_contacts: 18 },
-      Clara: { contacts_exported: 10, outdated_contacts: 3, total_contacts: 13 },
+      Kenith: {
+        contacts_exported: 14,
+        outdated_contacts: 4,
+        total_contacts: 18,
+      },
+      Clara: {
+        contacts_exported: 10,
+        outdated_contacts: 3,
+        total_contacts: 13,
+      },
     },
     recommendations: [
       { type: "Send AI Email", target: "Decision-makers" },
@@ -395,6 +523,3 @@ export const insightAlertsData = [
     ],
   },
 ];
-
-
-  

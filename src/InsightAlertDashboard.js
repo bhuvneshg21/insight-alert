@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Bar, Doughnut } from "react-chartjs-2";
 import { customersData } from "./data";
 import "./InsightAlertDashboard.css";
+import { data } from "./data";
 import InsightAlertIcon from "./assets/InsightAlert.png";
 import dialpad from "./assets/num.png";
 import {
@@ -33,6 +34,22 @@ const InsightAlertDashboard = ({ selectedCustomerId }) => {
   if (!customerData) return <div>Customer data not found</div>;
 
   const { sections } = customerData;
+
+  const [dateRange, setDateRange] = useState("Current Month");
+  const chartData = data[dateRange];
+
+  const handleDownload = (fileName, tableData) => {
+    // Ensure fileName and tableData are defined before executing the function
+    if (!fileName || !tableData) return;
+
+    const csvContent = tableData.map((row) => row.join(",")).join("\n");
+    const blob = new Blob([csvContent], { type: "text/csv" });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${fileName}.csv`;
+    a.click();
+  };
 
   return (
     <div className="insight-alert-dashboard">
@@ -86,199 +103,195 @@ const InsightAlertDashboard = ({ selectedCustomerId }) => {
       </header>
 
       <section className="subheader">
-        <div className="insight-alert">
-          <img
-            src={InsightAlertIcon}
-            alt="Insight Alert Icon"
-            className="insight-alert-icon"
-          />
-          <h2>Insight Alert Dashboard</h2>
+        <div className="header-left">
+          <h1>Insight Alert Dashboard</h1>
+          <h2>Actionable Data for Optimal Results</h2>
         </div>
-        <p className="subheader-text">Actionable Data for Optimal Results</p>
-        <div className="manager-info">
-          <span>
-            <strong>Account Manager:</strong> Spandana Chandra
-          </span>
-          <span>
-            <strong>Customer Success Manager:</strong> Jayakrishna Thirumeni
-          </span>
+        <div className="header-right">
+          <div className="manager">
+            <span>
+              Account Manager: <strong>Spandana Chandra</strong>
+            </span>
+            <span>
+              Customer Success Manager: <strong>Jayakrishna Thirumeni</strong>
+            </span>
+            <select
+              value={dateRange}
+              onChange={(e) => setDateRange(e.target.value)}
+            >
+              <option>Current Month</option>
+              <option>Past Month</option>
+            </select>
+          </div>
         </div>
       </section>
 
-      <div className="dashboard-sections">
-        {/* Account Fit Score */}
-        <div className="dashboard-section">
-          <h2>Account Fit Score</h2>
-          <Bar
-            data={{
-              ...sections.accountFitScore.chartData,
-              datasets: [
-                {
-                  ...sections.accountFitScore.chartData.datasets[0],
-                  backgroundColor: ["#a155b9", "#9e5fbb", "#6e1c75"],
-                },
-              ],
-            }}
-            options={{ responsive: true }}
-            width={300}
-            height={300}
-          />
-          <button className="download-icon">⬇️</button>
-          <table>
-            <thead>
-              <tr>
-                <th>Account Fit Score</th>
-                <th>Target Accounts</th>
-                <th>Whitespace Companies</th>
-              </tr>
-            </thead>
-            <tbody>
-              {sections.accountFitScore.tableData.map((row, index) => (
-                <tr key={index}>
-                  <td>{row.fitLevel}</td>
-                  <td>{row.targetAccounts}</td>
-                  <td>{row.whitespace}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <p>{sections.accountFitScore.description}</p>
+      {/* Account Fit Score Section */}
+      <section className="chart-section">
+        <div className="chart-header">
+          <h3>Account Fit Score</h3>
+          <button
+            onClick={() =>
+              handleDownload(
+                "Account_Fit_Score",
+                chartData.accountFit.tableData
+              )
+            }
+          >
+            <i className="download-icon">↓</i> Download
+          </button>
         </div>
+        <Bar data={chartData.accountFit.chartData} />
+        <table className="data-table">
+          <thead>
+            <tr>
+              <th>Account Fit Score</th>
+              <th>Target Accounts</th>
+              <th>Whitespace Companies</th>
+            </tr>
+          </thead>
+          <tbody>
+            {chartData.accountFit.tableData.map((row, idx) => (
+              <tr key={idx}>
+                <td>{row[0]}</td>
+                <td>{row[1]}</td>
+                <td>{row[2]}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p className="recommendation">
+          <strong>Recommendation:</strong> {chartData.accountFit.recommendation}
+        </p>
+      </section>
 
-        {/* Contact Data Accuracy (Stacked Bar) */}
-        <div className="dashboard-section">
-          <h2>Contact Data Accuracy (Exported)</h2>
-          <Bar
-            data={{
-              ...sections.contactDataAccuracy.chartData,
-              datasets: [
-                {
-                  ...sections.contactDataAccuracy.chartData.datasets[0],
-                  backgroundColor: "#5f63eb",
-                },
-                {
-                  ...sections.contactDataAccuracy.chartData.datasets[1],
-                  backgroundColor: "#b63ab9",
-                },
-              ],
-            }}
-            options={{
-              responsive: true,
-              scales: {
-                x: {
-                  stacked: true,
-                },
-                y: {
-                  stacked: true,
-                },
-              },
-            }}
-            width={300}
-            height={300}
-          />
-          <button className="download-icon">⬇️</button>
-          <table>
-            <thead>
-              <tr>
-                <th>Contact Accuracy</th>
-                <th>Exported</th>
-                <th>Outdated</th>
-              </tr>
-            </thead>
-            <tbody>
-              {sections.contactDataAccuracy.tableData.map((row, index) => (
-                <tr key={index}>
-                  <td>{row.name}</td>
-                  <td>{row.exported}</td>
-                  <td>{row.outdated}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <p>{sections.contactDataAccuracy.description}</p>
+      {/* Contact Data Accuracy Section */}
+      <section className="chart-section">
+        <div className="chart-header">
+          <h3>Contact Data Accuracy (Exported)</h3>
+          <button
+            onClick={() =>
+              handleDownload(
+                "Contact_Data_Accuracy",
+                chartData.contactDataAccuracy.tableData
+              )
+            }
+          >
+            <i className="download-icon">↓</i> Download
+          </button>
         </div>
+        <Bar
+          data={chartData.contactDataAccuracy.chartData}
+          options={{ indexAxis: "y" }} // Make it horizontal
+        />
+        <table className="data-table">
+          <thead>
+            <tr>
+              <th>Contact Data Accuracy</th>
+              <th>Aaron</th>
+              <th>Chris</th>
+              <th>Kenith</th>
+              <th>Clara</th>
+            </tr>
+          </thead>
+          <tbody>
+            {chartData.contactDataAccuracy.tableData.map((row, idx) => (
+              <tr key={idx}>
+                <td>{row[0]}</td>
+                <td>{row[1]}</td>
+                <td>{row[2]}</td>
+                <td>{row[3]}</td>
+                <td>{row[4]}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p className="recommendation">
+          <strong>Recommendation:</strong>{" "}
+          {chartData.contactDataAccuracy.recommendation}
+        </p>
+      </section>
 
-        {/* Engagement Funnel */}
-        <div className="dashboard-section">
-          <h2>Engagement Funnel</h2>
-          <Bar
-            data={{
-              ...sections.engagementFunnel.chartData,
-              datasets: [
-                {
-                  ...sections.engagementFunnel.chartData.datasets[0],
-                  backgroundColor: ["#a155b9", "#5f63eb", "#b63ab9"],
-                },
-              ],
-            }}
-            options={{ responsive: true, indexAxis: "y" }}
-            width={300}
-            height={300}
-          />
-          <button className="download-icon">⬇️</button>
-          <table>
-            <thead>
-              <tr>
-                <th>Engagement Funnel</th>
-                <th>Target Accounts</th>
-                <th>Whitespace Companies</th>
-              </tr>
-            </thead>
-            <tbody>
-              {sections.engagementFunnel.tableData.map((row, index) => (
-                <tr key={index}>
-                  <td>{row.step}</td>
-                  <td>{row.count}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <p>{sections.engagementFunnel.description}</p>
+      {/* Engagement Funnel Section */}
+      <section className="chart-section">
+        <div className="chart-header">
+          <h3>Engagement Funnel</h3>
+          <button
+            onClick={() =>
+              handleDownload(
+                "Engagement_Funnel",
+                chartData.engagementFunnel.tableData
+              )
+            }
+          >
+            <i className="download-icon">↓</i> Download
+          </button>
         </div>
+        <Bar
+          data={chartData.engagementFunnel.chartData}
+          options={{ indexAxis: "y" }} // Make it horizontal
+        />
+        <table className="data-table">
+          <thead>
+            <tr>
+              <th>Engagement Funnel</th>
+              <th>Target Accounts</th>
+              <th>Whitespace Companies</th>
+            </tr>
+          </thead>
+          <tbody>
+            {chartData.engagementFunnel.tableData.map((row, idx) => (
+              <tr key={idx}>
+                <td>{row[0]}</td>
+                <td>{row[1]}</td>
+                <td>{row[2]}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p className="recommendation">
+          <strong>Recommendation:</strong>{" "}
+          {chartData.engagementFunnel.recommendation}
+        </p>
+      </section>
 
-        {/* Recommended Plays (Donut) */}
-        <div className="dashboard-section">
-          <h2>Recommended Plays</h2>
-          <Doughnut
-            data={{
-              ...sections.recommendedPlays.chartData,
-              datasets: [
-                {
-                  ...sections.recommendedPlays.chartData.datasets[0],
-                  backgroundColor: [
-                    "#a155b9",
-                    "#9e5fbb",
-                    "#5f63eb",
-                    "#b63ab9",
-                    "#6e1c75",
-                  ],
-                },
-              ],
-            }}
-            options={{ responsive: true }}
-            width={300}
-            height={300}
-          />
-          <button className="download-icon">⬇️</button>
-          <table>
-            <thead>
-              <tr>
-                <th>Recommended Plays</th>
-                <th>Target Accounts</th>
-              </tr>
-            </thead>
-            <tbody>
-              {sections.recommendedPlays.tableData.map((row, index) => (
-                <tr key={index}>
-                  <td>{row.play}</td>
-                  <td>{row.targetAccounts}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <p>{sections.recommendedPlays.description}</p>
+      {/* Recommended Plays Section */}
+      <section className="chart-section">
+        <div className="chart-header">
+          <h3>Recommended Plays (Actioned)</h3>
+          <button
+            onClick={() =>
+              handleDownload(
+                "Recommended_Plays",
+                chartData.recommendedPlays.tableData
+              )
+            }
+          >
+            <i className="download-icon">↓</i> Download
+          </button>
         </div>
-      </div>
+        <Doughnut data={chartData.recommendedPlays.chartData} />
+        <table className="data-table">
+          <thead>
+            <tr>
+              <th>Recommended Plays</th>
+              <th>Target Accounts</th>
+            </tr>
+          </thead>
+          <tbody>
+            {chartData.recommendedPlays.tableData.map((row, idx) => (
+              <tr key={idx}>
+                <td>{row[0]}</td>
+                <td>{row[1]}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p className="recommendation">
+          <strong>Recommendation:</strong>{" "}
+          {chartData.recommendedPlays.recommendation}
+        </p>
+      </section>
     </div>
   );
 };
